@@ -1,20 +1,27 @@
 using UnityEngine;
 
-public class Dot : MonoBehaviour
+public class Items : MonoBehaviour
 {
-    [SerializeField] private GameObject[] dots;
-    [SerializeField] private GameObject house;
-    private bool assigned; 
+    //[SerializeField] private GameObject[] dots;
+    public GameObject[] dots;
     private bool first;
     private float activeDot;
 
     // Start is called before the first frame update
     void Awake()
     {
+        GameObject[] _dots = new GameObject[GameObject.Find("DotContainer").transform.childCount];
+        dots = _dots;
+
+        for (int i = 0; i < dots.Length; i++)
+        {
+            dots[i] = GameObject.Find("DotContainer").transform.GetChild(i).gameObject;
+        }
+ 
         for(int i = 0; i < dots.Length; i++)
         {
-            //dots[i].transform.position = new Vector3(house.transform.position.x + 5,house.transform.position.y + i - 3, 0);
             dots[i].SetActive(false);
+            dots[i].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Kiwi");
         }
 
         activeDot = 0;
@@ -24,18 +31,13 @@ public class Dot : MonoBehaviour
     {
         first = true;
         for(int i = 0; i < dots.Length; i++)
-        {
-            //Debug.Log(dots[i].transform.position.x);
-            //Debug.Log(house.transform.position.x + 5);
-            
+        {            
             if(!dots[i].activeInHierarchy && first)
             {
                 dots[i].SetActive(true);
                 dots[i].transform.position = new Vector3(_x + 2,_y + _nb, 0);
                 first = false;
             }
-
-
         }
 
         activeDot += 1;
@@ -57,8 +59,13 @@ public class Dot : MonoBehaviour
         activeDot -= 1;
     }
 
-    public bool isDotMaxxed()
+    public bool isDotFull()
     {
         return activeDot == dots.Length;
+    }
+
+    public bool isDotEmpty()
+    {
+        return activeDot == 0;
     }
 }

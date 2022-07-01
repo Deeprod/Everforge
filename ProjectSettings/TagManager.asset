@@ -77,3 +77,6 @@ TagManager:
   - name: House
     uniqueID: 3424091975
     locked: 0
+  - name: Dot
+    uniqueID: 3129354193
+    locked: 0

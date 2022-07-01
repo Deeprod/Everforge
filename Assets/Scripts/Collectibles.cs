@@ -4,29 +4,38 @@ public class Collectibles : MonoBehaviour
 {
     private GameObject collectibles;
     private float nb;
+    private bool isDotFull;
+    private bool isDotEmpty;
+
     [SerializeField] private float maxNb;
     
     void Awake()
     {
         nb = 0;
-        collectibles = transform.parent.parent.gameObject;
+        collectibles = transform.parent.parent.gameObject;   //GameObject.Find("Items"); //
     }
 
     // Start is called before the first frame update
     void OnMouseOver()
     {
-
-        if(Input.GetMouseButtonDown(0) && nb != maxNb)
+        //On Right or Left click, we check if the dot pool is empty or full
+        if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
-            
-            Debug.Log("Left Click" + nb);
-            nb = Mathf.Min(maxNb, nb + 1);
-            collectibles.GetComponent<Dot>().SetDot(transform.position.x, transform.position.y, nb);
+            isDotFull = collectibles.GetComponent<Items>().isDotFull();
+            isDotEmpty = collectibles.GetComponent<Items>().isDotEmpty();
         }
-        else if(Input.GetMouseButtonDown(1) && nb != 0)
+
+        //We add a new dot only if the dot pool is not full and the collectible pool is not full
+        if(Input.GetMouseButtonDown(0) && nb != maxNb && !isDotFull)
         {
-            Debug.Log("Right Click" + nb);     
-            collectibles.GetComponent<Dot>().RemoveDot(transform.position.x, transform.position.y, nb);
+            nb = Mathf.Min(maxNb, nb + 1);
+            collectibles.GetComponent<Items>().SetDot(transform.position.x, transform.position.y, nb);
+        }
+        //We remove a new dot only if the dot pool is not empty and the collectible pool is not empty
+        //Not that !isDotEmpty should be redundant
+        else if(Input.GetMouseButtonDown(1) && nb != 0 && !isDotEmpty)
+        {  
+            collectibles.GetComponent<Items>().RemoveDot(transform.position.x, transform.position.y, nb);
             nb = Mathf.Max(0, nb - 1);
         }
     }
