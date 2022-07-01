@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Collectibles : MonoBehaviour
@@ -12,7 +14,7 @@ public class Collectibles : MonoBehaviour
     void Awake()
     {
         nb = 0;
-        collectibles = transform.parent.parent.gameObject;   //GameObject.Find("Items"); //
+        collectibles = GameObject.Find("Items");
         param = GameObject.Find("Parameters");
     }
 
