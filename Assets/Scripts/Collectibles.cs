@@ -3,16 +3,22 @@ using UnityEngine;
 public class Collectibles : MonoBehaviour
 {
     private GameObject collectibles;
+    private GameObject param;
     private float nb;
     private bool isDotFull;
     private bool isDotEmpty;
-
-    [SerializeField] private float maxNb;
+    private float maxNb;
     
     void Awake()
     {
         nb = 0;
         collectibles = transform.parent.parent.gameObject;   //GameObject.Find("Items"); //
+        param = GameObject.Find("Parameters");
+    }
+
+    void Update()
+    {
+        maxNb = param.GetComponent<Parameters>().get_maxDotNb();
     }
 
     // Start is called before the first frame update

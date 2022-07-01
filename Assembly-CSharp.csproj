@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Collectibles.cs" />
      <Compile Include="Assets\Scripts\Items.cs" />
+     <Compile Include="Assets\Scripts\Parameters.cs" />
      <None Include="Assets\Sprites\Tiles\Tiles\License.txt" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Unity\2020.3.34f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
