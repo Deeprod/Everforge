@@ -41,41 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Row-5
-    uniqueID: 3911524741
+  - name: Sky
+    uniqueID: 1368763129
     locked: 0
-  - name: Row-4
-    uniqueID: 1183423203
+  - name: Ground
+    uniqueID: 1913278311
     locked: 0
-  - name: Row-3
-    uniqueID: 2852756009
-    locked: 0
-  - name: Row-2
-    uniqueID: 2602589659
-    locked: 0
-  - name: Row-1
-    uniqueID: 88975699
-    locked: 0
-  - name: Row0
-    uniqueID: 1331851433
-    locked: 0
-  - name: Row1
-    uniqueID: 1184075025
-    locked: 0
-  - name: Row2
-    uniqueID: 2585078247
-    locked: 0
-  - name: Row3
-    uniqueID: 2125190723
-    locked: 0
-  - name: Row4
-    uniqueID: 3608248393
-    locked: 0
-  - name: Row5
-    uniqueID: 1679863693
-    locked: 0
-  - name: House
-    uniqueID: 3424091975
+  - name: Collectibles
+    uniqueID: 2038663265
     locked: 0
   - name: Dot
     uniqueID: 3129354193
