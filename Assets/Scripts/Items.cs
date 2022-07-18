@@ -31,13 +31,13 @@ public class Items : MonoBehaviour
 
         // Initialize the collectibles, setting up the sprite as per the parameters
         // If the sprites array is not long enough, we re-use the last sprite.
-        GameObject[] _collectibles = new GameObject[GameObject.Find("Collectibles").transform.childCount];
-        collectibles = _collectibles;
-        for (int i = 0; i < collectibles.Length; i++)
-        {
-            collectibles[i] = GameObject.Find("Collectibles").transform.GetChild(i).gameObject;
-            collectibles[i].GetComponent<SpriteRenderer>().sprite = collectibleSprites[Mathf.Min(i,collectibleSprites.Length-1)];  //
-        }
+        //GameObject[] _collectibles = new GameObject[GameObject.Find("Collectibles").transform.childCount];
+        //collectibles = _collectibles;
+        //for (int i = 0; i < collectibles.Length; i++)
+        //{
+        //    collectibles[i] = GameObject.Find("Collectibles").transform.GetChild(i).gameObject;
+        //    collectibles[i].GetComponent<SpriteRenderer>().sprite = collectibleSprites[Mathf.Min(i,collectibleSprites.Length-1)];  //
+        //}
     }
 
     //Set a new dot attched to a collectible
