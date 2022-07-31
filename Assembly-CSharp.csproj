@@ -42,6 +42,7 @@
      <Compile Include="Assets\Scripts\CloudBack.cs" />
      <Compile Include="Assets\Scripts\Parameters.cs" />
      <Compile Include="Assets\Scripts\CloudFront1.cs" />
+     <Compile Include="Assets\Scripts\Bar.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Unity\2020.3.34f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
