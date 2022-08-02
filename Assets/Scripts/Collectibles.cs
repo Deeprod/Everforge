@@ -10,7 +10,19 @@ public class Collectibles : MonoBehaviour
     private bool isDotFull;
     private bool isDotEmpty;
     private float maxNb;
-
+    private float scaleUpdate;
+    private float alphaUpdate;
+    private float scaleSign;
+    private float scaleOriginalX;
+    private float scaleOriginalY;
+    private float colorOriginalR;
+    private float colorOriginalG;
+    private float colorOriginalB;
+    private float colorOriginalA;
+    [SerializeField] private float scaleUpdateMax;
+    [SerializeField] private float scaleUpdateMin;
+    [SerializeField] private float scaleFactor;
+    [SerializeField] private float alphaFactor;
     [SerializeField] private string barName;
     private GameObject barObject;
     
@@ -20,11 +32,42 @@ public class Collectibles : MonoBehaviour
         collectibles = GameObject.Find("Items");
         param = GameObject.Find("Parameters");
         barObject = GameObject.Find("Bar_" + barName);
+        scaleSign = 1;
+
+        scaleUpdate = this.transform.localScale.x;
+        scaleOriginalX = this.transform.localScale.x;
+        scaleOriginalY = this.transform.localScale.y;
+
+        colorOriginalR = this.GetComponent<SpriteRenderer>().color.r;
+        colorOriginalG = this.GetComponent<SpriteRenderer>().color.g;
+        colorOriginalB = this.GetComponent<SpriteRenderer>().color.b;
+        colorOriginalA = 0.5f;
+        alphaUpdate = colorOriginalA;
+        this.GetComponent<SpriteRenderer>().color = new Vector4(colorOriginalR, colorOriginalG, colorOriginalB, alphaUpdate);
+
     }
 
     void Update()
     {
         maxNb = param.GetComponent<Parameters>().get_maxDotNb();
+        if(nb > 0)
+        {
+            scaleUpdate = scaleUpdate + scaleSign * scaleFactor;
+            alphaUpdate = alphaUpdate + scaleSign * alphaFactor;
+            if(scaleUpdate > scaleUpdateMax)
+            {
+                scaleUpdate = scaleUpdateMax;
+                scaleSign = -scaleSign;
+            }
+            else if(scaleUpdate < scaleUpdateMin)
+            {
+                scaleUpdate = scaleUpdateMin;
+                scaleSign = -scaleSign;
+            }
+            
+            this.transform.localScale = new Vector3(scaleUpdate, scaleUpdate, this.transform.localScale.z);
+            this.GetComponent<SpriteRenderer>().color = new Vector4(colorOriginalR, colorOriginalG, colorOriginalB, alphaUpdate);
+        }
     }
 
     // Start is called before the first frame update
@@ -51,6 +94,12 @@ public class Collectibles : MonoBehaviour
             collectibles.GetComponent<Items>().RemoveDot(transform.position.x, transform.position.y, nb);
             nb = Mathf.Max(0, nb - 1);
             barObject.GetComponent<Bar>().removeDot();
+
+            if(nb == 0)
+            {
+                this.transform.localScale = new Vector3(scaleOriginalX, scaleOriginalY, this.transform.localScale.z);
+                this.GetComponent<SpriteRenderer>().color = new Vector4(colorOriginalR, colorOriginalG, colorOriginalB, colorOriginalA);
+            }
         }
     }
 }
