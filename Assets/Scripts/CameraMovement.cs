@@ -12,6 +12,9 @@ public class CameraMovement : MonoBehaviour
     [Header("Cloud Background Lock")]
     public GameObject[] cloud;
 
+    private float movX;
+    private float movY;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,39 +24,28 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
-        {
-            cameraPosition.y += CameraSpeed/10;
-            for (int i = 0; i < cloud.Length; i++)
-            {
-                cloud[i].transform.position = new Vector3(cloud[i].transform.position.x, cloud[i].transform.position.y + CameraSpeed/10, cloud[i].transform.position.z);
-            }
-        }
-        if(Input.GetKey(KeyCode.S))
-        {
-            cameraPosition.y -= CameraSpeed/10;
-            for (int i = 0; i < cloud.Length; i++)
-            {
-                cloud[i].transform.position = new Vector3(cloud[i].transform.position.x, cloud[i].transform.position.y - CameraSpeed/10, cloud[i].transform.position.z);
-            }
-        }
+        movX = 0;
+        movY = 0;
+
         if(Input.GetKey(KeyCode.D))
         {
-            cameraPosition.x += CameraSpeed/10;
-            for (int i = 0; i < cloud.Length; i++)
-            {
-                cloud[i].transform.position = new Vector3(cloud[i].transform.position.x + CameraSpeed/10, cloud[i].transform.position.y, cloud[i].transform.position.z);
-            }
+            movX = Mathf.Cos((Mathf.PI/180)*26.565f)/10;
+            movY = -Mathf.Sin((Mathf.PI/180)*26.565f)/10;
         }
         if(Input.GetKey(KeyCode.A))
         {
-            cameraPosition.x -= CameraSpeed/10;
-            for (int i = 0; i < cloud.Length; i++)
-            {
-                cloud[i].transform.position = new Vector3(cloud[i].transform.position.x - CameraSpeed/10, cloud[i].transform.position.y, cloud[i].transform.position.z);
-            }
+            movX = -Mathf.Cos((Mathf.PI/180)*26.565f)/10;
+            movY = Mathf.Sin((Mathf.PI/180)*26.565f)/10;
+        }
+
+        cameraPosition.x += movX;
+        cameraPosition.y += movY;
+        for (int i = 0; i < cloud.Length; i++)
+        {
+            cloud[i].transform.position = new Vector3(cloud[i].transform.position.x + movX, cloud[i].transform.position.y + movY, cloud[i].transform.position.z);
         }
         this.transform.position = cameraPosition;
+
         //for (int i = 0; i < cloud.Length; i++)
         //{
         //    cloud[i].transform.position = cloudPosition[i];

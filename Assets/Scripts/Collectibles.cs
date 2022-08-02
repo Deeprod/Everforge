@@ -10,12 +10,16 @@ public class Collectibles : MonoBehaviour
     private bool isDotFull;
     private bool isDotEmpty;
     private float maxNb;
+
+    [SerializeField] private string barName;
+    private GameObject barObject;
     
     void Awake()
     {
         nb = 0;
         collectibles = GameObject.Find("Items");
         param = GameObject.Find("Parameters");
+        barObject = GameObject.Find("Bar_" + barName);
     }
 
     void Update()
@@ -38,6 +42,7 @@ public class Collectibles : MonoBehaviour
         {
             nb = Mathf.Min(maxNb, nb + 1);
             collectibles.GetComponent<Items>().SetDot(transform.position.x, transform.position.y, nb);
+            barObject.GetComponent<Bar>().addDot();
         }
         //We remove a new dot only if the dot pool is not empty and the collectible pool is not empty
         //Not that !isDotEmpty should be redundant
@@ -45,6 +50,7 @@ public class Collectibles : MonoBehaviour
         {  
             collectibles.GetComponent<Items>().RemoveDot(transform.position.x, transform.position.y, nb);
             nb = Mathf.Max(0, nb - 1);
+            barObject.GetComponent<Bar>().removeDot();
         }
     }
 }

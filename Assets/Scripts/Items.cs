@@ -7,7 +7,6 @@ public class Items : MonoBehaviour
     private GameObject param;
     public GameObject[] dots;
     public GameObject[] collectibles;
-    private Sprite[] collectibleSprites;
     private bool first;
     private float activeDot;
 
@@ -15,7 +14,6 @@ public class Items : MonoBehaviour
     {
         // Fetch the collectibles sprites as per defined in the Parameters script
         param = GameObject.Find("Parameters");
-        collectibleSprites = param.GetComponent<Parameters>().get_collectibleSprites();
 
         //Initialize the number of active dots
         activeDot = 0;
