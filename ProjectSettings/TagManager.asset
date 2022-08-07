@@ -47,6 +47,9 @@ TagManager:
   - name: Ground
     uniqueID: 1913278311
     locked: 0
+  - name: Stairs
+    uniqueID: 2450179831
+    locked: 0
   - name: Collectibles
     uniqueID: 2038663265
     locked: 0
