@@ -12420,7 +12420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -112.6853}
+  m_AnchoredPosition: {x: 1451, y: 222}
   m_SizeDelta: {x: 0, y: -2771.0225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1083383888
@@ -12777,6 +12777,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 41315426}
     m_Modifications:
+    - target: {fileID: 2369700023770532068, guid: a7dbeb17af4edca44b3cc6e8ddc3506a, type: 3}
+      propertyPath: collectibleName
+      value: Orange
+      objectReference: {fileID: 0}
     - target: {fileID: 7230551767941316642, guid: a7dbeb17af4edca44b3cc6e8ddc3506a, type: 3}
       propertyPath: m_Name
       value: Bar_Orange
@@ -14673,7 +14677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3391738996544291491, guid: 0d458f14af7375e4c9c8affed933e227, type: 3}
       propertyPath: m_Name
-      value: Wood Log
+      value: Collectible_WoodLog
       objectReference: {fileID: 0}
     - target: {fileID: 3391738996544291493, guid: 0d458f14af7375e4c9c8affed933e227, type: 3}
       propertyPath: m_RootOrder
@@ -15503,6 +15507,10 @@ PrefabInstance:
     - target: {fileID: 2254621843493782497, guid: a7dbeb17af4edca44b3cc6e8ddc3506a, type: 3}
       propertyPath: m_Color.r
       value: 0.7176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 2369700023770532068, guid: a7dbeb17af4edca44b3cc6e8ddc3506a, type: 3}
+      propertyPath: collectibleName
+      value: WoodLog
       objectReference: {fileID: 0}
     - target: {fileID: 2960010590911478442, guid: a7dbeb17af4edca44b3cc6e8ddc3506a, type: 3}
       propertyPath: m_Color.b
@@ -20709,7 +20717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3391738996544291491, guid: 0d458f14af7375e4c9c8affed933e227, type: 3}
       propertyPath: m_Name
-      value: Apple
+      value: Collectible_Apple
       objectReference: {fileID: 0}
     - target: {fileID: 3391738996544291493, guid: 0d458f14af7375e4c9c8affed933e227, type: 3}
       propertyPath: m_RootOrder
@@ -21398,6 +21406,10 @@ PrefabInstance:
     - target: {fileID: 2254621843493782497, guid: a7dbeb17af4edca44b3cc6e8ddc3506a, type: 3}
       propertyPath: m_Color.r
       value: 0.99215686
+      objectReference: {fileID: 0}
+    - target: {fileID: 2369700023770532068, guid: a7dbeb17af4edca44b3cc6e8ddc3506a, type: 3}
+      propertyPath: collectibleName
+      value: Apple
       objectReference: {fileID: 0}
     - target: {fileID: 2960010590911478442, guid: a7dbeb17af4edca44b3cc6e8ddc3506a, type: 3}
       propertyPath: m_Color.b
@@ -23620,7 +23632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3391738996544291490, guid: 0d458f14af7375e4c9c8affed933e227, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3391738996544291490, guid: 0d458f14af7375e4c9c8affed933e227, type: 3}
       propertyPath: m_SortingLayerID
@@ -23628,7 +23640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3391738996544291491, guid: 0d458f14af7375e4c9c8affed933e227, type: 3}
       propertyPath: m_Name
-      value: Orange
+      value: Collectible_Orange
       objectReference: {fileID: 0}
     - target: {fileID: 3391738996544291493, guid: 0d458f14af7375e4c9c8affed933e227, type: 3}
       propertyPath: m_RootOrder
