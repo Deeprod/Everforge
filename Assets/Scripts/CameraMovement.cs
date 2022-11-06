@@ -45,18 +45,14 @@ public class CameraMovement : MonoBehaviour
         cameraPosition.x += movX;
         cameraPosition.y += movY;
 
-        //if(cameraPosition.x < cameraPositionStart + CameraMaxRight || cameraPosition.x > cameraPositionStart - CameraMaxLeft)
-        //{
-            for (int i = 0; i < cloud.Length; i++)
-            {
-                cloud[i].transform.position = new Vector3(cloud[i].transform.position.x + movX, cloud[i].transform.position.y + movY, cloud[i].transform.position.z);
-            }
-            this.transform.position = cameraPosition;
-        //}
+        for (int i = 0; i < cloud.Length; i++)
+        {
+            cloud[i].transform.position = new Vector3(cloud[i].transform.position.x + movX, cloud[i].transform.position.y + movY, cloud[i].transform.position.z);
+        }
+        this.transform.position = cameraPosition;
 
-        //for (int i = 0; i < cloud.Length; i++)
-        //{
-        //    cloud[i].transform.position = cloudPosition[i];
-        //}
+
+
+
     }
 }

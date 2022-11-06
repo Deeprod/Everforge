@@ -122,8 +122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8aeabeac873c04a86654b761351ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleUpdateMax: 3
-  scaleUpdateMin: 2
+  scaleUpdateMax: 2
+  scaleUpdateMin: 1.5
   scaleFactor: 0.006
-  alphaFactor: 0.003
+  alphaFactor: 0.006
+  alphaUpdateMax: 0.7
+  alphaUpdateMin: 0.2
+  rotateFactor: 0.5
+  rotateUpdateMax: 30
+  rotateUpdateMin: -30
   barName: 

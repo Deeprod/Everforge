@@ -142,5 +142,7 @@ public class Bar : MonoBehaviour
         {
             percentage = 0.0f;
         }
+
+        GameObject.Find("Display_" + collectibleName + "_" + nb.ToString()).GetComponent<SpriteRenderer>().enabled = true;
     }
 }
